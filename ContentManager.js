@@ -1,4 +1,5 @@
 'use strict';
+
 let request = require('request');
 
 module.exports = class ContentManager {

@@ -1,3 +1,4 @@
 .idea/
 SodaPlatform-wrapper.iml
 node_modules
+npm-debug.log
