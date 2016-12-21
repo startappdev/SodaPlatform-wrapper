@@ -1,0 +1,19 @@
+{
+  "name": "sodaplatform-wrapper",
+  "version": "0.1.0",
+  "description": "Wraps essentials Soda Platform (CM, MS, and more) API in a a useful NodeJs service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/startappdev/SodaPlatform-wrapper.git"
+  },
+  "author": "Arik Liber",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/startappdev/SodaPlatform-wrapper/issues"
+  },
+  "homepage": "https://github.com/startappdev/SodaPlatform-wrapper#readme"
+}
