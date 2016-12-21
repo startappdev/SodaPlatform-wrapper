@@ -5,7 +5,7 @@ It simply wraps all the APIs described [here](https://startapp.atlassian.net/wik
 
 ![Structure](infrastructure.png)
 
-##Usage example
+##Usage
 
 1) Start by adding this repo to package.json, using a direct link to github:
 
