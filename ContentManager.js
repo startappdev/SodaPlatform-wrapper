@@ -12,8 +12,6 @@ module.exports = class ContentManager {
 
         return new Promise((fulfill, reject) => {
 
-            logger.profile('ContentManager - subscribe');
-
             let subscriptionObj = {
                 'productId': productId,
                 'bubbleId': this.bubbleId,
@@ -40,7 +38,6 @@ module.exports = class ContentManager {
                 } else {
                     reject(error);
                 }
-                logger.profile('ContentManager - subscribe');
             });
 
         }); /// promise
@@ -50,8 +47,6 @@ module.exports = class ContentManager {
     unsubscribe(productId, contextId, subscriptionIds, isScheduledSubscription) {
 
         return new Promise((fulfill, reject) => {
-
-            logger.profile('unsubscribe');
 
             let subscriptionObj = {
                 'productId': productId,
@@ -75,7 +70,6 @@ module.exports = class ContentManager {
                 } else {
                     reject(error);
                 }
-                logger.profile('unsubscribe');
             });
 
         }); /// promise
@@ -85,8 +79,6 @@ module.exports = class ContentManager {
     getUserSubscriptions(productId, contextId) {
 
         return new Promise((fulfill, reject) => {
-
-            logger.profile('ContentManager - getUserSubscriptions');
 
             let subscriptionObj = {
                 'productId': productId,
@@ -106,7 +98,6 @@ module.exports = class ContentManager {
                 } else {
                     reject(error);
                 }
-                logger.profile('ContentManager - getUserSubscriptions');
             });
 
         }); /// promise
@@ -116,8 +107,6 @@ module.exports = class ContentManager {
     getAllTopics() {
 
         return new Promise((fulfill, reject) => {
-
-            logger.profile('ContentManager - getAllTopics');
 
             let requestObj = {
                 'bubbleId': this.bubbleId,
@@ -132,10 +121,8 @@ module.exports = class ContentManager {
                 if (response && response.statusCode === 200) {
                     fulfill(response.body.topics);
                 } else {
-                    logger.error(`ContentManager - getAllTopics: Got [${response.statusCode}] response with error`, error)
                     reject(error);
                 }
-                logger.profile('ContentManager - getAllTopics');
             });
 
         }); /// promise
@@ -144,11 +131,7 @@ module.exports = class ContentManager {
 
     sendMessages(messages, isScheduledSubscription) {
 
-        logger.info(`ContentManger - sendMessages: Started..`);
-
         return new Promise((fulfill, reject) => {
-
-            logger.profile('ContentManager - sendMessages');
 
             if (messages.length > 0) {
 
@@ -180,7 +163,6 @@ module.exports = class ContentManager {
                         }
 
                     }
-                    logger.profile('ContentManager - sendMessages');
                 });
 
             } else {
@@ -188,7 +170,6 @@ module.exports = class ContentManager {
                     messages: messages,
                     response: ''
                 });
-                logger.profile('ContentManager - sendMessages');
             }
 
         }); /// promise
