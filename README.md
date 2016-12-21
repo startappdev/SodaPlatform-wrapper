@@ -7,6 +7,14 @@ It simply wraps all the APIs described [here](https://startapp.atlassian.net/wik
 
 ##Usage example
 
+Start by adding this repo to package.json, using a direct link to github:
+
+```javsacript
+"sodaplatform-wrapper": "https://github.com/startappdev/SodaPlatform-wrapper.git"
+```
+
+Then use it from any file like so:
+
 ```javascript
 let ContentManager = require('sodaplatform-wrapper').ContentManager;
 
