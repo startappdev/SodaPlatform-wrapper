@@ -10,7 +10,7 @@ It simply wraps all the APIs described [here](https://startapp.atlassian.net/wik
 ```javascript
 let ContentManager = require('sodaplatform-wrapper').ContentManager;
 
-let contentManager = new ContentManager('https://content.startappnetwork.com/content-manager/', 'YourBubbleId'');
+let contentManager = new ContentManager('https://content.startappnetwork.com/content-manager/', 'YourBubbleId');
 
 //Now call any class method, e.g. contentManager.subscribe(...)
 ```
