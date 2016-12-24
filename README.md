@@ -21,7 +21,7 @@ Follow [this guide](https://help.github.com/articles/caching-your-github-passwor
 ```javascript
 let ContentManager = require('sodaplatform-wrapper').ContentManager;
 
-let contentManager = new ContentManager('https://content.startappnetwork.com/content-manager/', 'YourBubbleId');
+let contentManager = new ContentManager('<content manager URL>', 'YourBubbleId');
 
 //Now call any class method, e.g. contentManager.subscribe(...)
 ```
