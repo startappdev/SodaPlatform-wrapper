@@ -9,13 +9,23 @@ module.exports = class ContentManager {
         this.bubbleId = bubbleId;
     }
 
-    subscribe(productId, contextId, topicId, receivers, timeTrigger) {
+    _getBubbleId(bubbleId) {
+        if(bubbleId) {
+            return bubbleId;
+        } else if(this.bubbleId) {
+            return this.bubbleId;
+        } else {
+            throw Error('Content Manager Wrapper: No Bubble Id supplied');
+        }
+    }
+
+    subscribe(productId, contextId, topicId, receivers, timeTrigger, bubbleId) {
 
         return new Promise((fulfill, reject) => {
 
             let subscriptionObj = {
                 'productId': productId,
-                'bubbleId': this.bubbleId,
+                'bubbleId': this._getBubbleId(bubbleId),
                 'userId': contextId,
                 'topicStates' : [{
                     'topicId': topicId
@@ -45,13 +55,13 @@ module.exports = class ContentManager {
 
     }
 
-    unsubscribe(productId, contextId, subscriptionIds, isScheduledSubscription) {
+    unsubscribe(productId, contextId, subscriptionIds, isScheduledSubscription, bubbleId) {
 
         return new Promise((fulfill, reject) => {
 
             let subscriptionObj = {
                 'productId': productId,
-                'bubbleId': this.bubbleId,
+                'bubbleId': this._getBubbleId(bubbleId),
                 'userId': contextId,
                 'subscriptionIds': subscriptionIds
             };
@@ -77,13 +87,13 @@ module.exports = class ContentManager {
 
     }
 
-    getUserSubscriptions(productId, contextId) {
+    getUserSubscriptions(productId, contextId, bubbleId) {
 
         return new Promise((fulfill, reject) => {
 
             let subscriptionObj = {
                 'productId': productId,
-                'bubbleId': this.bubbleId,
+                'bubbleId': this._getBubbleId(bubbleId),
                 'userId': contextId
             };
 
@@ -105,12 +115,12 @@ module.exports = class ContentManager {
 
     }
 
-    getAllTopics() {
+    getAllTopics(bubbleId) {
 
         return new Promise((fulfill, reject) => {
 
             let requestObj = {
-                'bubbleId': this.bubbleId,
+                'bubbleId': this._getBubbleId(bubbleId),
             };
 
             request({
@@ -130,15 +140,15 @@ module.exports = class ContentManager {
 
     }
 
-    sendMessages(messages, isScheduledSubscription) {
+    sendMessages(messages, isScheduledSubscription, bubbleId) {
 
         return new Promise((fulfill, reject) => {
 
             if (messages.length > 0) {
 
                 let requestObj = {
-                    'bubbleId': this.bubbleId,
-                    contentResources: messages
+                    'bubbleId': this._getBubbleId(bubbleId),
+                    'contentResources': messages
                 };
 
                 if(isScheduledSubscription === true) {
