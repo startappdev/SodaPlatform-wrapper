@@ -34,7 +34,7 @@ module.exports = class ContentManager {
             };
 
             //Add time trigger if exists
-            if(typeof timeTrigger !== 'undefined') {
+            if(typeof timeTrigger !== 'undefined' && timeTrigger !== null) {
                 subscriptionObj.topicStates[0].timeTrigger = timeTrigger;
             }
 
