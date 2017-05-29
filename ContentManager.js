@@ -19,7 +19,7 @@ module.exports = class ContentManager {
         }
     }
 
-    subscribe(productId, contextId, topicId, receivers, timeTrigger, bubbleId) {
+    subscribe(productId, contextId, topicId, receivers, timeTrigger, bubbleId, subscriberId) {
 
         return new Promise((fulfill, reject) => {
 
@@ -30,7 +30,8 @@ module.exports = class ContentManager {
                 'topicStates' : [{
                     'topicId': topicId
                 }],
-                'receivers': receivers
+                'receivers': receivers,
+                'subscriberId': subscriberId
             };
 
             //Add time trigger if exists

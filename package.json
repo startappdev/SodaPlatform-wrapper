@@ -1,6 +1,6 @@
 {
   "name": "sodaplatform-wrapper",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Wraps essentials Soda Platform (CM, MS, and more) API in a a useful NodeJs service",
   "main": "index.js",
   "scripts": {
